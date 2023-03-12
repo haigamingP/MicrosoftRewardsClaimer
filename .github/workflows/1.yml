@@ -1,0 +1,25 @@
+
+name: 1
+
+on:  
+  workflow_dispatch:
+  schedule:
+  - cron: '0 0 * * *'  #every day at 6:00 am EST
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.1.0
+      - name: Set up Python
+        uses: actions/setup-python@v4.3.0
+        with:
+          python-version: '3.x'
+          cache: 'pip'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run Script
+        run: timeout 1800 python MicrosoftRewardsBot.py --accounts hgmusic963@gmail.com:haigaming1310**1 --headless --fast --privacy
+      - name: Retry
+        if: ${{ failure() }}
+        run: timeout 1800 python MicrosoftRewardsBot.py --accounts hgmusic963@gmail.com:haigaming1310**1 --headless --fast --privacy
