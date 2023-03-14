@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Run Script
-        run: timeout 1800 python MicrosoftRewardsBot.py --accounts pipamusic123@gmail.com:haigaming1310**1 --headless --fast --privacy
+        run: timeout 1800 python MicrosoftRewardsBot.py --accounts pipamusic123@gmail.com:haigaminglaso1**1 --headless --fast --privacy
       - name: Retry
         if: ${{ failure() }}
-        run: timeout 1800 python MicrosoftRewardsBot.py --accounts pipamusic123@gmail.com:haigaming1310**1 --headless --fast --privacy
+        run: timeout 1800 python MicrosoftRewardsBot.py --accounts pipamusic123@gmail.com:haigaminglaso1**1 --headless --fast --privacy
